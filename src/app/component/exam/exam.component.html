@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <br>
+    <div>
+        <h1>All Articles</h1>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <input type="textbox" [(ngModel)]="searchArt" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <select [(ngModel)]="selectedArtType" class="form-control">
+                    <option value="1">Author</option>
+                    <option value="2">Title</option>
+                    <option value="3">Body</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="div-card">
+        <div class="card" *ngFor="let art of articleList | articleFilter: searchArt:selectedArtType">
+            <div class="card-body">
+                <ul>
+                    <li><b>Title:</b> {{art.title}}</li>
+                    <li><b>Author:</b> {{art.author}}</li>
+                    <li><b>Body:</b> {{art.body}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
